@@ -1,0 +1,592 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "AlreadyCheckedIn",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "AlreadyOwnsTicket",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "AttendeeHasNoTicket",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EventDoesNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InsufficientPayment",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidTierIndex",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoFeesToWithdraw",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "SaleEnded",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "SaleNotActive",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "SoldOut",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "attendee",
+						"type": "address"
+					}
+				],
+				"name": "AttendeeCheckedIn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "saleStartTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "saleEndTime",
+						"type": "uint256"
+					}
+				],
+				"name": "EventCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FeesWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "TicketBought",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "buyTicket",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "attendee",
+						"type": "address"
+					}
+				],
+				"name": "checkInAttendee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_eventName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_saleStartTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_saleEndTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string[]",
+						"name": "_tierNames",
+						"type": "string[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_tierPrices",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_tierMaxSupplies",
+						"type": "uint256[]"
+					}
+				],
+				"name": "createEvent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "events",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "saleStartTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "saleEndTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEventCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					}
+				],
+				"name": "getEventDetails",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "saleStartTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "saleEndTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tierCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getTierDetails",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxSupply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "issuedSupply",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "hasTicket",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eventId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tierIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "isAttendeeCheckedIn",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextEventId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawFees",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Manages creation, sale, and check-in for events with tiered tickets. For EasyA x Polkadot Harvard Hackathon.",
+			"kind": "dev",
+			"methods": {
+				"buyTicket(uint256,uint256)": {
+					"params": {
+						"eventId": "The ID of the event to buy a ticket for.",
+						"tierIndex": "The index of the desired tier within the event's tiers array."
+					}
+				},
+				"checkInAttendee(uint256,uint256,address)": {
+					"params": {
+						"attendee": "The address of the attendee to check in.",
+						"eventId": "The ID of the event.",
+						"tierIndex": "The index of the tier."
+					}
+				},
+				"createEvent(string,uint256,uint256,string[],uint256[],uint256[])": {
+					"params": {
+						"_eventName": "Name of the event.",
+						"_saleEndTime": "Unix timestamp when ticket sales end.",
+						"_saleStartTime": "Unix timestamp when ticket sales begin.",
+						"_tierMaxSupplies": "Array of max supply counts for each tier. MUST match _tierNames order.",
+						"_tierNames": "Array of names for each ticket tier (e.g., [\"General\", \"VIP\"]).",
+						"_tierPrices": "Array of prices (in WND base units) for each tier. MUST match _tierNames order."
+					}
+				},
+				"getEventDetails(uint256)": {
+					"params": {
+						"eventId": "The ID of the event."
+					}
+				},
+				"getTierDetails(uint256,uint256)": {
+					"params": {
+						"eventId": "The ID of the event.",
+						"tierIndex": "The index of the tier."
+					}
+				}
+			},
+			"title": "EventTickets",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"buyTicket(uint256,uint256)": {
+					"notice": "Allows a user to buy a ticket for a specific tier of an event."
+				},
+				"checkInAttendee(uint256,uint256,address)": {
+					"notice": "Allows the contract owner to check-in an attendee for a specific tier."
+				},
+				"createEvent(string,uint256,uint256,string[],uint256[],uint256[])": {
+					"notice": "Creates a new event with multiple ticket tiers. Only callable by contract owner."
+				},
+				"getEventCount()": {
+					"notice": "Gets the total number of events created."
+				},
+				"getEventDetails(uint256)": {
+					"notice": "Gets basic details for a specific event (excluding tier details)."
+				},
+				"getTierDetails(uint256,uint256)": {
+					"notice": "Gets details for a specific tier within an event."
+				},
+				"hasTicket(uint256,uint256,address)": {
+					"notice": "Checks if a user owns a ticket for a specific event tier."
+				},
+				"isAttendeeCheckedIn(uint256,uint256,address)": {
+					"notice": "Checks if a user has been checked in for a specific event tier."
+				},
+				"withdrawFees()": {
+					"notice": "Allows the contract owner to withdraw all accumulated WND fees."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/EventTickets.sol": "EventTickets"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"details": {
+				"constantOptimizer": false,
+				"cse": false,
+				"deduplicate": false,
+				"inliner": false,
+				"jumpdestRemover": false,
+				"orderLiterals": false,
+				"peephole": false,
+				"simpleCounterForLoopUncheckedIncrement": true,
+				"yul": true,
+				"yulDetails": {
+					"optimizerSteps": "dhfoDgvulfnTUtnIfxa[r]EscLMVcul [j]Trpeulxa[r]cLgvifMCTUca[r]LSsTFOtfDnca[r]IulcscCTUtgvifMx[scCTUt] TOntnfDIulgvifMjmul[jul] VcTOcul jmul:fDnTOcmuO",
+					"stackAllocation": true
+				}
+			},
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/EventTickets.sol": {
+			"keccak256": "0x8b1a4ccfd9a8b16173b04157c701d0d91ba1404874cd92a65f4889bfb18c622a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5180949531d03cd2c9e1f58e1ddce76ebb69c7c74ddf94165ddc971f7786f658",
+				"dweb:/ipfs/QmbK37uenJoJTEHNLeSkX428ceJC4m3bgNS7cgZNFmDBTx"
+			]
+		}
+	},
+	"version": 1
+}

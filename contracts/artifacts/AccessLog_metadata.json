@@ -1,0 +1,149 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "fileHash",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "accessor",
+						"type": "address"
+					}
+				],
+				"name": "Accessed",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "accessLog",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "fileHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "getAccessors",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "fileHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "logAccess",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "A simple contract to log which addresses have accessed a file, identified by its hash. For EasyA x Polkadot Harvard Hackathon.",
+			"kind": "dev",
+			"methods": {
+				"getAccessors(bytes32)": {
+					"details": "Retrieves the list of addresses that logged access for a given file hash.",
+					"params": {
+						"fileHash": "The bytes32 hash of the file."
+					},
+					"returns": {
+						"_0": "An array of accessor addresses."
+					}
+				},
+				"logAccess(bytes32)": {
+					"details": "Logs that the caller (msg.sender) has accessed the file with the given hash. Does not prevent duplicate entries for simplicity in hackathon scope.",
+					"params": {
+						"fileHash": "The bytes32 hash of the file (e.g., IPFS CID hash)."
+					}
+				}
+			},
+			"title": "AccessLog",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/AccessLog.sol": "AccessLog"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"details": {
+				"constantOptimizer": false,
+				"cse": false,
+				"deduplicate": false,
+				"inliner": false,
+				"jumpdestRemover": false,
+				"orderLiterals": false,
+				"peephole": false,
+				"simpleCounterForLoopUncheckedIncrement": true,
+				"yul": false
+			},
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/AccessLog.sol": {
+			"keccak256": "0x9a8d88abdf91a8e848dc749805407cb0e7b413765f0bd0459b5d26a34c59ffe2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://28b7c794769855683aaa7cac1c03fb81c40cce5eab2e3eac64ba2fb8900056d8",
+				"dweb:/ipfs/QmSFmhwsCivdnMWLkjAaGMmFuTgSemyymVsmEpTbBq3wnD"
+			]
+		}
+	},
+	"version": 1
+}
