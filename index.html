@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polkadot Event Tickets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Polkadot Hackathon Event Tickets</h1>
+
+    <button id="connectButton">Connect Wallet</button>
+    <p>Status: <span id="status">Disconnected</span></p>
+    <p>Account: <span id="account">N/A</span></p>
+    <p>Network: <span id="network">N/A</span></p>
+
+    <hr>
+
+    <h2>Event 1 Details</h2>
+    <button id="fetchEventButton">Fetch Event Details</button>
+    <div id="eventDetails">
+        <p>Name: <span id="eventName">...</span></p>
+        <p>Price: <span id="eventPrice">...</span> WND</p>
+        <p>Supply: <span id="eventSupply">...</span> / <span id="eventMaxSupply">...</span></p>
+        <p>Sale Start: <span id="eventStart">...</span></p>
+        <p>Sale End: <span id="eventEnd">...</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Your Ticket Status</h2>
+    <button id="checkTicketButton">Check My Ticket</button>
+    <p>You Own Ticket: <span id="ticketStatus">Unknown</span></p>
+
+    <hr>
+
+    <h2>Buy Ticket (Event 1)</h2>
+    <p>Price: <span id="buyPrice">...</span> WND</p>
+    <button id="buyTicketButton" disabled>Buy Ticket</button>
+    <p id="buyStatus"></p>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.11.1/ethers.umd.min.js"></script>
+    <script src="app.js" defer></script>
+</body>
+</html>
