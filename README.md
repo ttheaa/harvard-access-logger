@@ -76,9 +76,8 @@ To run the frontend demo and interact with the deployed contract on Westmint:
 * **Unique Polkadot Feature:** The ability to deploy and run standard Solidity/EVM contracts directly on a core system parachain (Asset Hub) using native tooling, thanks to `pallet-revive` and PolkaVM.
 
 ## Screenshots
-
-`![UI Demo Screenshot 1](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.22.08%20pm.png?raw=true)`
-`![UI Demo Screenshot 2](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.23.36%20pm.png?raw=true)`
+![Alt text description](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.22.08%20pm.png?raw=true)
+![image]([https://user-images.githubusercontent.com/...](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.23.36%20pm.png?raw=true)
 
 ## Future Vision
 
