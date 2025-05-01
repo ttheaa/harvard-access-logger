@@ -77,7 +77,7 @@ To run the frontend demo and interact with the deployed contract on Westmint:
 
 ## Screenshots
 ![Alt text description](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.22.08%20pm.png?raw=true)
-![image]([https://user-images.githubusercontent.com/...](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.23.36%20pm.png?raw=true)
+![image](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.23.36%20pm.png?raw=true)
 
 ## Future Vision
 
