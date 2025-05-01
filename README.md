@@ -21,6 +21,9 @@ Offers simple on-chain event ticketing on Polkadot Asset Hub (Westmint) using a 
 * **Contract Address:** `0x6b347a5FCDf33E4A711B04d5937C66E2aA050281`
 * **Block Explorer Link (Subscan):** `https://assethub-westend.subscan.io/account/0x6b347a5fcdf33e4a711b04d5937c66e2aa050281`
 
+## Screenshots
+![Alt text description](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.22.08%20pm.png?raw=true)
+![image](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.23.36%20pm.png?raw=true)
 
 ## Running the Demo Locally
 
@@ -74,10 +77,6 @@ To run the frontend demo and interact with the deployed contract on Westmint:
 * **Deployment Network:** Westmint (Polkadot Asset Hub Testnet - EVM Chain ID `420420421`)
 * **Polkadot Tech Used:** Westmint Asset Hub Parachain, `pallet-revive` (EVM Compatibility Layer), PolkaVM (WASM Execution Engine), Westmint EVM JSON-RPC Endpoint, WND (Testnet Gas Token), Subscan (Block Explorer)
 * **Unique Polkadot Feature:** The ability to deploy and run standard Solidity/EVM contracts directly on a core system parachain (Asset Hub) using native tooling, thanks to `pallet-revive` and PolkaVM.
-
-## Screenshots
-![Alt text description](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.22.08%20pm.png?raw=true)
-![image](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.23.36%20pm.png?raw=true)
 
 ## Future Vision
 
