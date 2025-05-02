@@ -19,7 +19,7 @@ Offers simple on-chain event ticketing on Polkadot Asset Hub (Westmint) using a 
 
 * **Network:** Westmint (Polkadot Asset Hub Testnet - EVM Chain ID `420420421`)
 * **Contract Address:** `0x6b347a5FCDf33E4A711B04d5937C66E2aA050281`
-* **Block Explorer Link (Subscan):** `https://assethub-westend.subscan.io/account/0x6b347a5fcdf33e4a711b04d5937c66e2aa050281`
+* **Block Explorer Link (Subscan):** `https://assethub-westend.subscan.io/extrinsic/0x9401ec8b95e28f5bdb38b51d535fa2ae2deab0237259122f14aafd59bd4ebd51`
 
 ## Screenshots
 ![Alt text description](https://github.com/ttheaa/harvard-access-logger/blob/main/Screenshot%202025-04-28%20at%202.22.08%20pm.png?raw=true)
